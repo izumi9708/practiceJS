@@ -126,9 +126,9 @@ console.log(json)
 // 問題８
 // ページ上に複数のボタンがあります。ボタンがクリックされた際に、そのボタンのテキストをコンソールに表示するコードを作成してください。
 
-// const button = document.getElementById('myButton');
+const button = document.getElementById('myButton');
 
-// button.addEventListener('click',(e)=> console.log(e.target.textContent))
+button.addEventListener('click',(e)=> console.log(e.target.textContent))
 
 
 // 問題9
@@ -143,6 +143,7 @@ console.log(str.match(urlRegex));
 // 問題１０
 // 以下のような配列があります。
 
+// Copy code
 // const array = [
 //     { name: "山田太郎", age: 20 },
 //     { name: "佐藤次郎", age: 30 },
@@ -304,7 +305,7 @@ for(let i of numbers){
   a += i;
 }
 
-// console.log(a)
+console.log(a)
 
 // 問題１４
 // 下記の配列から重複する要素を取り出す関数を作成してください。
@@ -369,3 +370,295 @@ const sort = arr.sort((a,b)=>{
   return a.toUpperCase() > b.toUpperCase() ? 1 : -1
 })
 console.log(sort)
+
+// 問題１９
+// 数値の配列が与えられた場合、その配列の要素を降順でソートするプログラムを書いてください。
+
+const numbers = [4, 2, 8, 1, 5];
+const sort = numbers.sort((a,b)=>a>b?-1:1);
+
+// 問題２０
+// 2つの整数を引数として取り、大きい方の値を返す関数を定義してください。
+const a = 7;
+const b = 12;
+
+function resultBigger(a,b){
+  return a > b ? a : b
+}
+
+console.log(resultBigger(a,b))
+
+// 問題２１
+// 文字列を引数として取り、その文字列が回文であるかどうかを判定するプログラムを書いてください。
+const word = "level";
+
+let newWord = [];
+
+for(let i = word.length -1; i >= 0 ; i--){
+  newWord.push(word[i])
+}
+
+if(word == newWord.join('')){
+  console.log('回文')
+}
+
+// 問題２２
+// 配列を引数として取り、その配列内の重複した要素を取り除いた新しい配列を返す関数を書いてください。
+
+const array = [1, 2, 2, 3, 4, 4, 5, 5];
+
+function removeDep(array){
+  return Array.from(new Set(array));
+}
+
+console.log(removeDep(array))
+
+ーーーーーーーーーーーーーーーーー
+
+// 問題２３
+// 配列の中から特定の値を抽出する
+
+const numbers = [3, 6, 2, 8, 1, 9];
+const target = 6;
+
+const result = numbers.filter(a=> a === target);
+
+console.log(result)
+
+// 問題２４
+// オブジェクトの中から特定のプロパティを抽出する
+
+const person = {
+  name: "John",
+  age: 32,
+  city: "New York",
+  occupation: "Developer"
+};
+const property = "age";
+
+console.log(person[property]);
+
+// 問題２５
+// 配列の要素を逆順に並べ替える
+
+const fruits = ["apple", "banana", "cherry", "durian", "elderberry"];
+
+console.log(fruits.reverse())
+
+// 問題２６
+// 文字列の中に含まれる特定の文字を置換する
+
+const sentence = "The quick brown fox jumps over the lazy dog";
+const target = "o";
+const replacement = "x";
+
+console.log(sentence.replace('o','x'))
+
+// 正解
+const sentence = "The quick brown fox jumps over the lazy dog";
+const target = /o/g; // 正規表現で'o'をグローバル検索する
+const replacement = "x";
+
+console.log(sentence.replace(target, replacement));
+
+// 問題２７
+// オブジェクトのプロパティの値を別のプロパティにコピーする
+
+const person = {
+  name: "John",
+  age: 32,
+  city: "New York",
+  occupation: "Developer"
+};
+
+person.name = person.city;
+console.log(person)
+
+// 問題２８
+// 配列の要素を特定の値で埋める
+
+const length = 5;
+const value = "x";
+
+const array = Array(length).fill(value)
+console.log(array)
+
+// 問題２９
+// オブジェクトのプロパティを並び替える
+
+const person = {
+  name: "John",
+  age: 32,
+  city: "New York",
+  skills: ["JavaScript", "HTML", "CSS", "React", "Node.js"]
+};
+
+console.log(person.skills.sort());
+
+
+// 問題30
+// 文字列を単語ごとに配列に分割する
+
+const sentence = "The quick brown fox jumps over the lazy dog";
+console.log(sentence.split(' '))
+
+// 問題31
+// 配列の中から特定の条件を満たす要素だけを抽出する
+
+const numbers = [3, 6, 2, 8, 1, 9];
+const condition = (number) => number > 5;
+
+const result = numbers.filter(a => condition(a));
+
+
+// 問題32
+// 与えられた数値配列の中で、最大値を求めるプログラムを作成してください。
+
+const numbers = [23, 5, 67, 12, 90, 3, 17];
+console.log(numbers.reduce((a,b)=>{
+  return Math.max(a,b)
+}))
+// 別解
+// console.log(Math.max.apply(null,numbers));
+
+
+// 問題33
+// 与えられた文字列が回文であるかどうかを判定するプログラムを作成してください。
+const string1 = "racecar", string2 = "hello";
+
+function kaibun(str){
+  const result = str.split('').reverse().join('');
+  str === result ? console.log('回文です') : console.log('回文ではありません');
+}
+
+kaibun(string1)
+kaibun(string2)
+
+
+// 問題34
+// 与えられたオブジェクト配列を、指定したプロパティで昇順にソートするプログラムを作成してください。
+
+const people = [
+  { name: "Alice", age: 25 },
+  { name: "Bob", age: 30 },
+  { name: "Charlie", age: 20 }
+  ];
+
+  people.sort((a,b)=>{
+    return a.name > b.name ? -1 : 1
+  })
+
+  console.log(people)
+
+
+// 問題35
+// 与えられた文字列の中から指定した文字列を含むものだけを抽出するプログラムを作成してください。
+
+const strings = ["apple", "banana", "cherry", "durian", "elderberry"], target = "er";
+
+const array = strings.filter(a=>　a.includes(target));
+console.log(array)
+
+// 問題36
+// 与えられたオブジェクトの中から、指定したプロパティを削除するプログラムを作成してください。
+
+const person = {
+  name: "John",
+  age: 32,
+  city: "New York",
+  occupation: "Developer"
+  };
+
+const property = "occupation";
+
+delete person[property];
+
+console.log(person)
+
+
+// 問題37
+// 与えられた2つの配列の差分を求めるプログラムを作成してください。
+
+const arr1 = [1, 2, 3, 4, 5], arr2 = [2, 4, 6];
+
+const a = arr1.reduce((a,b)=>a+b);
+const b = arr2.reduce((a,b)=>a+b);
+
+console.log(a - b)
+
+
+// 問題38
+// 与えられた配列の中から、指定した数値より大きい値だけを抽出するプログラムを作成してください。
+const numbers = [23, 5, 67, 12, 90, 3, 17], target = 20
+
+console.log(numbers.filter(a=> a > target));
+
+
+// 問題39
+// 与えられた数値を、指定した桁数まで0で埋めた文字列に変換するプログラムを作成してください。
+const number = 42, length = 6
+console.log(String(number).padStart(length,0))
+
+// 問題40
+// 与えられた配列の中から、指定した条件に一致する要素だけを持つ新しい配列を作成するプログラムを作成してください。
+
+const numbers = [3, 6, 2, 8, 1, 9], condition = (number) => number > 5;
+
+const result = numbers.filter( a => condition(a));
+console.log(result)
+
+// 問題41
+// 与えられた配列の要素を単語と見立て、全ての単語の先頭を大文字にして、単語を結合した文章を作成するプログラムを作成してください。
+
+const words = ["The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"];
+
+const newWord = words.map(val => val.charAt(0).toUpperCase() + val.slice(1));
+
+console.log(newWord.join(''))
+
+const str = 'hogehogehoge';
+console.log(str.charAt(0).toUpperCase() + str.slice(1))
+
+// 問題42
+// 次のデータを降順に並び替えてください。
+
+const numbers = [3, 6, 2, 8, 1, 9]
+const result = numbers.sort((a,b)=> b - a);
+
+console.log(result)
+
+// 問題43
+// 次のデータに含まれる全ての数値の平均値を求めてください。
+
+const numbers = [82, 75, 92, 67, 85, 86, 88, 79, 91, 72];
+
+const add = numbers.reduce((a,b) => a+b);
+console.log( add % numbers.length )
+
+// 問題44
+// 次のデータから重複している値を取り除いてください。
+
+const numbers = [3, 6, 9, 3, 6, 5, 9, 6]
+
+console.log(Array.from(new Set(numbers)));
+
+// 問題45
+// 次のデータに含まれる全ての文字列を逆順にしてください。
+
+const strings = ["apple", "banana", "cherry", "durian", "elderberry"];
+console.log([...strings].reverse());
+
+// 問題46
+// 数値の配列から最も小さな数値を取得するプログラムを作成してください。
+
+const numbers = [10, 5, 8, 3, 12, 1];
+console.log(numbers.reduce((a,b) => Math.min(a,b)))
+
+// 問題47
+// 与えられた文字列から、単語を逆順にして、単語と単語の間に半角スペースを入れた文字列を作成するプログラムを作成してください。
+
+const str = "I love JavaScript";
+console.log(str.split(' ').reverse().join(' '))
+
+
+
