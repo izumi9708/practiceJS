@@ -413,7 +413,6 @@ function removeDep(array){
 
 console.log(removeDep(array))
 
-ーーーーーーーーーーーーーーーーー
 
 // 問題２３
 // 配列の中から特定の値を抽出する
@@ -659,6 +658,41 @@ console.log(numbers.reduce((a,b) => Math.min(a,b)))
 
 const str = "I love JavaScript";
 console.log(str.split(' ').reverse().join(' '))
+
+
+// 問題４８
+// 数値の配列から、平均値を求めるプログラムを作成してください。
+
+const numbers = [3, 6, 9, 1, 2, 5, 7];
+
+const average = numbers.reduce((a,b)=>a+b) / numbers.length
+console.log(average)
+
+// 問題４９
+// 与えられた二つの配列に含まれる要素を結合し、重複を除いた新しい配列を作成するプログラムを作成してください。
+
+const arr1 = [1, 2, 3, 4, 5];
+const arr2 = [3, 4, 5, 6, 7];
+
+const array = [...new Set([...arr1,...arr2])]
+console.log(array)
+
+// 問題５０
+// 与えられたオブジェクトの中で、指定したキーを持つ要素の値の合計を求めるプログラムを作成してください。
+
+const data = [
+  {name: "John", age: 28, salary: 3000},
+  {name: "Mary", age: 33, salary: 3500},
+  {name: "Bob", age: 41, salary: 5000},
+  {name: "Tom", age: 22, salary: 2500},
+  {name: "Alice", age: 30, salary: 4000},
+  ];
+  const key = "salary";
+
+ const newArray = data.map(val=> val[key]).reduce((a,b)=>a+b);
+
+ console.log(newArray)
+
 
 
 
