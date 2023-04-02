@@ -382,3 +382,66 @@ console.log(arr.map(a => a * 2))
 
 const arr = [4, 2, 8, 5, 9, 7, 6];
 console.log(arr.filter(a => a % 2 === 0))
+
+// 問題９５
+// 以下の配列から、同じ要素が連続して並んでいる箇所を削除した配列を作成してください。
+
+const arr = ["apple", "apple", "banana", "peach", "peach", "peach", "apple", "kiwi", "kiwi"];
+
+let array = [];
+
+const result = arr.reduce((a,b)=> {
+  if(a !== b){
+    array.push(a)
+  }
+  console.log(a,b)
+  return b
+} )
+console.log(array)
+
+
+
+// 問題９６
+// 以下の配列の要素をすべて足し合わせた結果を出力してください。
+
+const arr = [4, 8, 1, 9, 7];
+console.log(arr.reduce((a,b)=> a + b))
+
+
+// 問題９７
+// 以下の配列から、文字列の長さが3以上で、かつ先頭の文字が"a"である要素だけを抽出した新しい配列を作成してください。
+
+const arr = ["apple", "orange", "kiwi", "avocado", "peach", "apricot", "banana"];
+
+console.log(arr.filter(a => (a.length >= 3) && (a.charAt(0) == 'a')));
+
+
+
+// 問題９８
+// 以下の配列を用いて、平均値を求めてください。
+
+const array = [0, 1, 1, 2, 3, 5, 8, 13]
+console.log(array.length)
+
+
+// 問題９９
+// 以下の配列の各要素を2乗した新しい配列を作成してください。
+
+const arr = [4, 3, 7, 8, 10, 1, 2, 3];
+console.log(arr.filter((a => a % 2 !== 0)))
+
+
+// 問題１００
+// ファイル名とその拡張子がドットで区切られている文字列が与えられます。この文字列から、拡張子の部分だけを取り出して返す関数 getExtension(filename) を実装してください。
+
+
+function getExtension(url){
+  const index = url.indexOf('.') + 1;
+  return url.slice(index);
+}
+console.log(getExtension("file.txt")); // "txt"
+console.log(getExtension("image.png")); // "png"
+console.log(getExtension("index.html")); // "html"
+
+
+
